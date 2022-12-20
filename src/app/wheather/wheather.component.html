@@ -1,0 +1,49 @@
+<div class="container">
+ 
+    <h1> Weather App </h1>
+    <input placeholder="Enter city name" ngx-google-places-autocomplete #box class="in"  /><br><br>
+    <button type="submit" (click)="getval(box.value)">Submit</button>
+ 
+  <div class="blank"></div>
+
+  <table class="table" *ngIf="this.res" style="width: 500px; align-items: center; margin-left: 300px; border-radius: 40px; background-color: rgb(209, 206, 206);" >
+    
+    <tbody style="text-align:center;">
+      <tr >
+        <th scope="row" style="font-size:bold;">Temp</th>
+        <td style="font-size:bold; font-weight:500">{{this.temp}} &deg;C</td>
+      </tr>
+      <tr>
+        <th scope="row" style="font-size:bold;">City</th>
+        <td style="font-size:bold; font-weight:700">{{this.name}} , {{this.country}}</td>
+      </tr>
+      <tr >
+        <th scope="row">Weather</th>
+        <td style="font-size:bold; font-weight:700">{{this.weather}}</td>
+      </tr>
+      <tr >
+        <th scope="row">Min</th>
+        <td style="font-size:bold; font-weight:700">{{this.min}} &deg;C </td>
+      </tr>
+      <tr>
+        <th scope="row">Max</th>
+        <td style="font-size:bold; font-weight:700">{{this.max}} &deg;C </td>
+      </tr>
+
+      <tr>
+        <th scope="row">SkY</th>
+        <td style="font-size:bold; font-weight:700"><img src="https://openweathermap.org/img/wn/{{this.icon}}.png"></td>
+      </tr>
+    </tbody>
+    
+  </table>
+
+  <agm-map  [latitude]='lat' [longitude]='long'  >
+    <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
+</agm-map>
+
+
+
+  
+  
+  
